@@ -1,4 +1,5 @@
 package com.develogical;
+import java.util.ArrayList;
 
 public class QueryProcessor {
 
@@ -11,6 +12,31 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("name")) {
             return "Eric/Yonah/Michael";
         }
+
+        if (query.toLowerCase().contains("largest") && 
+            query.toLowerCase().contains("number")) {
+
+            ArrayList<Double> numbers = new ArrayList<Double>();
+            String[] words = query.toLowerCase().split(" ");
+
+            for (int i = 0; i < words.length; i++) {
+                try {  
+                    numbers.add(Double.parseDouble(words[i]));
+                    } 
+                catch(NumberFormatException e){} 
+            }
+
+            double max = 0;
+
+            for (int i = 0; i < numbers.size(); i++) {
+                if (Double.parseDouble(words[i]) > max) {
+                    max = Double.parseDouble(words[i]);
+                }
+            }
+            
+            return String.valueOf(max);
+        }
+
         return "";
     }
 }
