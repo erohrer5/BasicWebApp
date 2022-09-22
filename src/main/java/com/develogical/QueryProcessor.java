@@ -27,7 +27,7 @@ public class QueryProcessor {
             }
 
             if (numbers.size() == 0) {
-                return ("No numbers found in query")
+                return "No numbers found in query";
             }
 
             double max = 0;
