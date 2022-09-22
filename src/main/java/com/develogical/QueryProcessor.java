@@ -26,6 +26,10 @@ public class QueryProcessor {
                 catch(NumberFormatException e){} 
             }
 
+            if (numbers.size() == 0) {
+                return ("No numbers found in query")
+            }
+
             double max = 0;
 
             for (int i = 0; i < numbers.size(); i++) {
